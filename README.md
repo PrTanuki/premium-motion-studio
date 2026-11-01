@@ -1,18 +1,21 @@
 # Premium Motion Studio
 
-AI-assisted premium kinetic typography and motion design.
+Composition de démonstration verticale : Remotion + React/TypeScript/SVG, 15 secondes, 30 images/s, sans audio. Les animations utilisent les images Remotion. GSAP est installé mais pas utilisé tant que sa synchronisation au rendu n'a pas été vérifiée. Motion Canvas est une expérience séparée.
 
-## Architecture
-- `apps/remotion`: Remotion + React + SVG, with optional frame-synchronised GSAP.
-- `apps/motion-canvas`: independent experimentation engine.
-- `.agents/skills`: creative direction, storyboard, production and QA skills.
-- `briefs/demo-01.json`: 15-second 9:16 demo spec (450 frames).
-- `.github/workflows`: CI checks and on-demand cloud video rendering.
+## Installer et rendre
 
-## Quick start
-1. Open this repository in Codex Cloud.
-2. Read `AGENTS.md` and the relevant `.agents/skills/**/SKILL.md` documents.
-3. Run `npm run setup:remotion` and develop the first demo.
-4. Run the CI and render workflows.
+Node 22 et FFmpeg sont requis. Depuis la racine :
 
-The initial repository is an **agent-ready starter**. Video engines, dependencies, and produced MP4 are completed and verified by Codex during implementation. Hermes (2 GB VPS) orchestrates render jobs; GitHub-hosted runners perform rendering.
+```bash
+cd apps/remotion && npm ci && npm run check && cd ../..
+npm run validate:brief
+npm run render:demo
+```
+
+Le script produit `out/premium-demo-01.mp4`, des captures, une planche et les métadonnées. Pour le studio : `cd apps/remotion && npm run studio`.
+
+## Hermes et GitHub Actions
+
+Sur le VPS de 2 Go, ne pas lancer le rendu. Déclencher le workflow `Render motion on demand` avec `composition=PremiumDemo01` sur une branche qui contient ce workflow ; suivre le run et télécharger l'artifact `premium-demo-01`. Voir `docs/HERMES-INTEGRATION.md`. Le workflow n'accepte aucune commande ni chemin arbitraire.
+
+Polices Space Grotesk et Inter via Fontsource : licences OFL disponibles dans les paquets npm ; Remotion comporte des conditions de licence à vérifier selon l'usage. Voir `docs/QA-REPORT.md` et `docs/ENGINE-COMPARISON.md`.

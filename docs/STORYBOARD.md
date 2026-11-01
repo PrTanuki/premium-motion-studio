@@ -1,8 +1,10 @@
-# PremiumDemo01
-15 seconds / 450 frames / 1080x1920 @ 30fps.
-0–89: LES IDÉES; cream, black typography, orange trigger.
-90–179: MÉRITENT; full orange with masked headline.
-180–299: DU MOUVEMENT; black climax, cream typography and orange geometric strokes.
-300–389: geometry; cream, evolving circle/square/lines.
-390–449: MOTION STUDIO; black/cream/orange outro, readable final hold.
-Transition windows 85–100, 174–190, 290–310, 380–400. Timelines may overlap visually while narrative scene indices remain contiguous.
+# PremiumDemo01 — storyboard
+1080 × 1920, 30 fps, 450 images, sans audio. Les plages ci-dessous sont inclusives.
+
+- 0–89 : fond crème, ligne orange, révélation masquée « LES IDÉES ». La ligne prépare le balayage orange à partir de 85.
+- 90–179 : fond orange, « MÉRITENT » entre et tient. Le fond noir monte de 174 à 190.
+- 180–299 : « DU MOUVEMENT » en crème, marque géométrique orange ; dispersion avant la transition crème de 290 à 310.
+- 300–389 : formes crème, carbone et orange se recomposent. Le fond carbone monte de 380 à 400.
+- 390–449 : symbole et signature « MOTION STUDIO. » ; maintien final lisible.
+
+Les balayages recouvrent les scènes plutôt que de les couper : chaque couche entrante occupe progressivement le cadre.

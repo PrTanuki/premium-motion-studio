@@ -3,11 +3,10 @@ on:
   workflow_dispatch:
     inputs:
       composition:
-        description: Allowed composition
+        description: Approved composition
         required: true
         type: choice
-        options:
-          - PremiumDemo01
+        options: [PremiumDemo01]
 permissions:
   contents: read
 concurrency:
@@ -22,19 +21,25 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
-      - name: Validate brief
-        run: npm run validate:brief
-      - name: Require implemented Remotion app
-        run: test -f apps/remotion/package-lock.json
-      - name: Install dependencies
+          cache: npm
+          cache-dependency-path: apps/remotion/package-lock.json
+      - name: Validate requested composition
+        env:
+          COMPOSITION: ${{ inputs.composition }}
+        run: test "$COMPOSITION" = PremiumDemo01
+      - run: npm run validate:brief
+      - run: npm ci
         working-directory: apps/remotion
-        run: npm ci
-      - name: Render (no rendering on Hermes VPS)
-        run: npm run render:demo
-      - name: Upload video
-        uses: actions/upload-artifact@v4
+      - run: npm run check
+        working-directory: apps/remotion
+      - run: npm run render:demo
+      - uses: actions/upload-artifact@v4
         with:
           name: premium-demo-01
-          path: out/premium-demo-01.mp4
+          path: |
+            out/premium-demo-01.mp4
+            out/contact-sheet.png
+            out/stills/
+            out/metadata.json
           if-no-files-found: error
           retention-days: 7
