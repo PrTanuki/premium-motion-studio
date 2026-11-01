@@ -1,0 +1,30 @@
+{
+  "id": "CNARMRecruitment01",
+  "title": "Votre avenir prend une nouvelle direction",
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "durationInFrames": 450,
+  "brand": "CNARM",
+  "palette": {"navy":"#102B4E","orange":"#F28C28","cream":"#F7F3EA","pale":"#DDEAF4"},
+  "audio": null,
+  "safeArea": {"left":90,"right":180,"top":240,"bottom":440},
+  "props": {
+    "hook": "ET SI", "subject": "VOTRE", "next": "PROCHAIN", "job": "EMPLOI",
+    "question": "ÉTAIT EN", "destination": "MÉTROPOLE ?",
+    "project": "UN PROJET.", "opportunities": "DES OPPORTUNITÉS.",
+    "organization": "LE CNARM", "support": "VOUS ACCOMPAGNE.",
+    "pillars": ["CONSEIL","MOBILITÉ","EMPLOI"],
+    "ctaTitle": ["VOTRE PROJET","COMMENCE ICI."],
+    "cta": "DÉCOUVREZ LE CNARM", "url": "www.cnarm.fr"
+  },
+  "scenes": [
+    {"id":"hook","from":0,"to":89,"text":"ET SI VOTRE PROCHAIN EMPLOI"},
+    {"id":"question","from":90,"to":179,"text":"ÉTAIT EN MÉTROPOLE ?"},
+    {"id":"journey","from":180,"to":269,"text":"UN PROJET. DES OPPORTUNITÉS."},
+    {"id":"support","from":270,"to":359,"text":"LE CNARM VOUS ACCOMPAGNE. CONSEIL MOBILITÉ EMPLOI"},
+    {"id":"action","from":360,"to":449,"text":"VOTRE PROJET COMMENCE ICI. DÉCOUVREZ LE CNARM www.cnarm.fr"}
+  ],
+  "transitions": [{"from":83,"to":99},{"from":172,"to":189},{"from":262,"to":279},{"from":352,"to":369}],
+  "captureFrames": [0,15,30,60,85,95,120,150,175,185,210,240,265,275,300,330,355,365,390,420,449]
+}

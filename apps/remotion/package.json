@@ -5,7 +5,8 @@
   "scripts": {
     "studio": "remotion studio src/index.tsx",
     "check": "tsc --noEmit",
-    "render": "remotion render src/index.tsx PremiumDemo01 ../../out/premium-demo-01.mp4 --concurrency=2"
+    "render": "remotion render src/index.tsx PremiumDemo01 ../../out/premium-demo-01.mp4 --concurrency=2",
+    "render:cnarm": "remotion render src/index.tsx CNARMRecruitment01 ../../out/cnarm/cnarm-recrutement-01.mp4 --codec=h264 --crf=17 --pixel-format=yuv420p --concurrency=2"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +17,8 @@
     "@fontsource/space-grotesk": "5.3.0",
     "@remotion/bundler": "4.0.539",
     "@remotion/cli": "4.0.539",
+    "@remotion/fonts": "4.0.539",
+    "@remotion/gsap": "4.0.539",
     "@remotion/renderer": "4.0.539",
     "gsap": "3.15.0",
     "react": "19.3.1",

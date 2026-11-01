@@ -6,7 +6,7 @@ on:
         description: Approved composition
         required: true
         type: choice
-        options: [PremiumDemo01]
+        options: [PremiumDemo01, CNARMRecruitment01]
 permissions:
   contents: read
 concurrency:
@@ -26,22 +26,36 @@ jobs:
       - name: Validate requested composition
         env:
           COMPOSITION: ${{ inputs.composition }}
-        run: test "$COMPOSITION" = PremiumDemo01
+        run: |
+          case "$COMPOSITION" in
+            PremiumDemo01|CNARMRecruitment01) ;;
+            *) echo "Unsupported composition" >&2; exit 1 ;;
+          esac
       - run: npm run validate:brief
+      - run: npm run validate:cnarm
       - run: npm ci
         working-directory: apps/remotion
       - run: npm run check
         working-directory: apps/remotion
       - name: Install FFmpeg
         run: sudo apt-get update && sudo apt-get install -y ffmpeg
-      - run: npm run render:demo
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -m pip install Pillow==11.3.0
+      - name: Render original demo
+        if: inputs.composition == 'PremiumDemo01'
+        run: npm run render:demo
+      - name: Render CNARM and verify encoded frames
+        if: inputs.composition == 'CNARMRecruitment01'
+        run: |
+          npm run render:cnarm
+          cp docs/cnarm/QA-REPORT.md out/cnarm/QA-REPORT.md
+          cp briefs/cnarm-recruitment-01.json out/cnarm/brief.json
       - uses: actions/upload-artifact@v4
         with:
-          name: premium-demo-01
+          name: ${{ inputs.composition }}
           path: |
-            out/premium-demo-01.mp4
-            out/contact-sheet.png
-            out/stills/
-            out/metadata.json
+            out/
           if-no-files-found: error
           retention-days: 7

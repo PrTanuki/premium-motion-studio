@@ -13,6 +13,7 @@ jobs:
           cache: npm
           cache-dependency-path: apps/remotion/package-lock.json
       - run: npm run validate:brief
+      - run: npm run validate:cnarm
       - run: npm ci
         working-directory: apps/remotion
       - run: npm run check

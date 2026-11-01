@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const b=JSON.parse(fs.readFileSync(new URL('../briefs/cnarm-recruitment-01.json',import.meta.url)));
+assert.equal(b.id,'CNARMRecruitment01');
+assert.deepEqual([b.width,b.height,b.fps,b.durationInFrames],[1080,1920,30,450]);
+assert.equal(b.scenes.length,5);
+b.scenes.forEach((s,i)=>assert.deepEqual([s.from,s.to],[i*90,i*90+89]));
+assert.equal(b.captureFrames.length,21);
+assert.equal(new Set(b.captureFrames).size,21);
+assert(b.captureFrames.every(f=>Number.isInteger(f)&&f>=0&&f<450));
+for(const v of Object.values(b.props).flat()) assert.equal(typeof v,'string');
+assert.equal(b.props.pillars.length,3); assert.equal(b.props.ctaTitle.length,2);
+assert.equal(b.props.url,'www.cnarm.fr');
+assert(fs.existsSync(new URL('../apps/remotion/public/brand/cnarm-official.png',import.meta.url)));
+console.log('CNARM brief: 5 contiguous scenes, 450 frames, 21 captures, copy and logo OK');

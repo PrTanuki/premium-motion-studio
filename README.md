@@ -19,3 +19,21 @@ Le script produit `out/premium-demo-01.mp4`, des captures, une planche et les m�
 Sur le VPS de 2 Go, ne pas lancer le rendu. Déclencher le workflow `Render motion on demand` avec `composition=PremiumDemo01` sur une branche qui contient ce workflow ; suivre le run et télécharger l'artifact `premium-demo-01`. Voir `docs/HERMES-INTEGRATION.md`. Le workflow n'accepte aucune commande ni chemin arbitraire.
 
 Polices Space Grotesk et Inter via Fontsource : licences OFL disponibles dans les paquets npm ; Remotion comporte des conditions de licence à vérifier selon l'usage. Voir `docs/QA-REPORT.md` et `docs/ENGINE-COMPARISON.md`.
+
+## CNARM — Votre avenir prend une nouvelle direction
+
+Composition **CNARMRecruitment01** : 15 secondes, 1080×1920, 30 fps, H.264. Nouvelle publicité connectant cinq scènes typographiques ; le moteur et PremiumDemo01 sont conservés.
+
+```bash
+npm run validate:cnarm
+npm run check --prefix apps/remotion
+npm run render:cnarm
+```
+
+FFmpeg/ffprobe, Python 3 + Pillow et les dépendances Remotion sont nécessaires. Résultat et 21 captures : `out/cnarm/`. Le workflow **Render motion on demand** propose les deux compositions et conserve les exports en artefacts pendant 7 jours.
+
+- [Storyboard et direction](docs/cnarm/STORYBOARD.md)
+- [Contrôle qualité](docs/cnarm/QA-REPORT.md)
+- [Guide Hermes et déclinaisons](docs/cnarm/HERMES.md)
+- [Assets et licences](docs/cnarm/ASSETS-AND-LICENSES.md)
+- [Brief JSON réellement utilisé](briefs/cnarm-recruitment-01.json)

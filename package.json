@@ -8,6 +8,9 @@
     "setup:motion-canvas": "bash scripts/bootstrap-motion-canvas.sh",
     "validate:brief": "node scripts/validate-brief.mjs",
     "check": "npm run validate:brief",
-    "render:demo": "bash scripts/render-demo.sh"
+    "render:demo": "bash scripts/render-demo.sh",
+    "validate:cnarm": "node scripts/validate-cnarm.mjs",
+    "render:cnarm": "bash scripts/render-cnarm.sh",
+    "capture:cnarm": "python3 scripts/capture-cnarm.py"
   }
 }
