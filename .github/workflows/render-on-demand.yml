@@ -1,5 +1,7 @@
 name: Render motion on demand
 on:
+  push:
+    branches: [verify-remote-render]
   workflow_dispatch:
     inputs:
       composition:
@@ -25,7 +27,7 @@ jobs:
           cache-dependency-path: apps/remotion/package-lock.json
       - name: Validate requested composition
         env:
-          COMPOSITION: ${{ inputs.composition }}
+          COMPOSITION: ${{ inputs.composition || 'PremiumDemo01' }}
         run: test "$COMPOSITION" = PremiumDemo01
       - run: npm run validate:brief
       - run: npm ci
