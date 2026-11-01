@@ -1,0 +1,13 @@
+{
+  "name": "premium-motion-studio",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Agent-ready motion design workspace",
+  "scripts": {
+    "setup:remotion": "bash scripts/bootstrap-remotion.sh",
+    "setup:motion-canvas": "bash scripts/bootstrap-motion-canvas.sh",
+    "validate:brief": "node scripts/validate-brief.mjs",
+    "check": "npm run validate:brief",
+    "render:demo": "bash scripts/render-demo.sh"
+  }
+}

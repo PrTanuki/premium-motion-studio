@@ -1,0 +1,73 @@
+{
+  "id": "PremiumDemo01",
+  "title": "Les idées méritent du mouvement",
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "durationInFrames": 450,
+  "palette": {
+    "carbon": "#151515",
+    "cream": "#F5F0E6",
+    "orange": "#FF6333"
+  },
+  "fonts": {
+    "primary": "Space Grotesk",
+    "secondary": "Inter"
+  },
+  "audio": null,
+  "scenes": [
+    {
+      "id": "ideas",
+      "from": 0,
+      "to": 89,
+      "text": "LES IDÉES",
+      "description": "Cream background. Orange line initiates masked monumental text reveal. Prepare orange wipe."
+    },
+    {
+      "id": "deserve",
+      "from": 90,
+      "to": 179,
+      "text": "MÉRITENT",
+      "description": "Orange background, bold black kinetic headline, overshoot, legible hold, prepare black wipe."
+    },
+    {
+      "id": "movement",
+      "from": 180,
+      "to": 299,
+      "text": "DU MOUVEMENT",
+      "description": "Black background, cream headline, orange geometry, climax and text disassembly."
+    },
+    {
+      "id": "abstract",
+      "from": 300,
+      "to": 389,
+      "text": "",
+      "description": "Cream background; circles, rectangles and lines recombine as graphic identity."
+    },
+    {
+      "id": "outro",
+      "from": 390,
+      "to": 449,
+      "text": "MOTION STUDIO",
+      "description": "Black background, cream text, orange abstract symbol and final readable hold."
+    }
+  ],
+  "transitions": [
+    {
+      "from": 85,
+      "to": 100
+    },
+    {
+      "from": 174,
+      "to": 190
+    },
+    {
+      "from": 290,
+      "to": 310
+    },
+    {
+      "from": 380,
+      "to": 400
+    }
+  ]
+}

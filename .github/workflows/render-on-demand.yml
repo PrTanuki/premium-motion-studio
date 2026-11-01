@@ -1,0 +1,40 @@
+name: Render motion on demand
+on:
+  workflow_dispatch:
+    inputs:
+      composition:
+        description: Allowed composition
+        required: true
+        type: choice
+        options:
+          - PremiumDemo01
+permissions:
+  contents: read
+concurrency:
+  group: motion-render
+  cancel-in-progress: false
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+      - name: Validate brief
+        run: npm run validate:brief
+      - name: Require implemented Remotion app
+        run: test -f apps/remotion/package-lock.json
+      - name: Install dependencies
+        working-directory: apps/remotion
+        run: npm ci
+      - name: Render (no rendering on Hermes VPS)
+        run: npm run render:demo
+      - name: Upload video
+        uses: actions/upload-artifact@v4
+        with:
+          name: premium-demo-01
+          path: out/premium-demo-01.mp4
+          if-no-files-found: error
+          retention-days: 7
